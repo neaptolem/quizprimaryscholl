@@ -38,10 +38,12 @@ gulp.task('clean', function() {
 
 gulp.task('watch', ['clean'], function() {
     gulp.watch('./src/**/**.jade', ['templates']);
+    gulp.watch('./src/js/*.js', ['buildJS']);
+
     gulp.watch('./src/styles/**/*.scss', ['stylesheets:scss']);
 });
 
-gulp.task('browser-sync', ['stylesheets:scss', 'templates', 'add-image', 'buildLib', 'buildJS', 'addFonts'], function() {
+gulp.task('browser-sync', ['stylesheets:scss', 'templates', 'buildJS', 'addFonts'], function() {
     browserSync.init({
         server: {
             baseDir: "./docs"
@@ -62,8 +64,7 @@ gulp.task('buildLib', function() {
 });
 
 gulp.task('buildJS', function() {
-    gulp.src(['./src/js/index.js'])
-        .pipe(concat('index.js'))
+    gulp.src(['./src/js/*.js'])
         .pipe(gulp.dest('./docs/js'));
 });
 
