@@ -43,7 +43,7 @@ gulp.task('watch', ['clean'], function() {
     gulp.watch('./src/styles/**/*.scss', ['stylesheets:scss']);
 });
 
-gulp.task('browser-sync', ['stylesheets:scss', 'templates', 'buildJS', 'addFonts'], function() {
+gulp.task('browser-sync', ['stylesheets:scss', 'templates', 'buildJS','buildLib', 'addFonts'], function() {
     browserSync.init({
         server: {
             baseDir: "./docs"
@@ -58,7 +58,7 @@ gulp.task('add-image', function() {
 });
 
 gulp.task('buildLib', function() {
-    gulp.src(["./node_modules/jquery/dist/jquery.js", "./node_modules/bootstrap/dist/js/bootstrap.js", "./node_modules/jquery-easing/jquery.easing.1.3.js"])
+    gulp.src(["./node_modules/jquery/dist/jquery.js"])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./docs/js'));
 });

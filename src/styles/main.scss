@@ -1,20 +1,43 @@
-*{
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
+
 body {
     .container {
+      .btn{
+        &-answer{
+          border: 1px solid black;
+          width: 100px;
+          padding: 5px 0;
+          text-align: center;
+          span{
+            width: 100%;
+          }
+        }
+      }
         .quiz {
             &-item {
-              display: none;
-                &.display{
-                  display: block;
+                display: none;
+
+                &.display {
+                    display: block;
                 }
+
                 .questions {}
 
                 .answers {
                     list-style-type: none;
 
                     .answer {
+                        &.checked {
+                            .answer-check {
+                                .answer-check-inner {
+                                    border: 1px solid blue;
+                                    background-color: black;
+                                }
+                            }
+                        }
+
                         &-check {
                             height: 10px;
                             width: 10px;
@@ -22,23 +45,17 @@ body {
                             border: 1px solid black;
                             margin-right: 15px;
                             position: relative;
-                            &.checked{
-                              .answer-check-inner{
-                                border: 1px solid blue;
-                                background-color: black;
-
-                              }
-                            }
-                            &-inner{
-                              position: absolute;
-                              height: 8.4px;
-                              width: 8.4px;
-                              display: block;
-                              &:after{
+                            &-inner {
+                                position: absolute;
+                                height: 8.4px;
+                                width: 8.4px;
                                 display: block;
-                                content: '';
-                                clear: both;
-                              }
+
+                                &:after {
+                                    display: block;
+                                    content: '';
+                                    clear: both;
+                                }
                             }
                         }
 
