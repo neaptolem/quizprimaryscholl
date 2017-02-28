@@ -49,9 +49,11 @@ body {
                     .answer {
                       &.true{
                         color: $first-color;
+                        font-weight: bold;
                       }
                       &.false{
-                        color: maroon;
+                        color: red;
+                        font-weight: bold;
                       }
                         &.checked {
                             .answer-check {
