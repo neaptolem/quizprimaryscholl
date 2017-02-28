@@ -1,20 +1,38 @@
 * {
     box-sizing: border-box;
 }
-
+$first-color: green;
+$second-color: white;
 body {
     .container {
-      .btn{
-        &-answer{
-          border: 1px solid black;
-          width: 100px;
-          padding: 5px 0;
-          text-align: center;
-          span{
-            width: 100%;
+        .btn {
+            border: 1px solid $first-color;
+            margin: 20px 0;
+            padding: 5px 0;
+            text-align: center;
+            cursor: pointer;
+            color: $first-color;
+            transition: 0.5s;
+            &:hover{
+              transition: 0.5s;
+              background-color: $first-color;
+              color: $second-color;
+            }
+            span{
+              width: 100%;
+            }
+            &-answer {width: 100px;
+            &.hide{
+              display: none;
+            }}
+            &-next {width: 150px;
+            display: none;
+            &.show{
+              display: block;
+            }
           }
         }
-      }
+
         .quiz {
             &-item {
                 display: none;
@@ -29,11 +47,17 @@ body {
                     list-style-type: none;
 
                     .answer {
+                      &.true{
+                        color: $first-color;
+                      }
+                      &.false{
+                        color: maroon;
+                      }
                         &.checked {
                             .answer-check {
                                 .answer-check-inner {
-                                    border: 1px solid blue;
-                                    background-color: black;
+                                    border: 1px solid $second-color;
+                                    background-color: $first-color;
                                 }
                             }
                         }
@@ -42,9 +66,10 @@ body {
                             height: 10px;
                             width: 10px;
                             display: inline-block;
-                            border: 1px solid black;
+                            border: 1px solid $first-color;
                             margin-right: 15px;
                             position: relative;
+
                             &-inner {
                                 position: absolute;
                                 height: 8.4px;
